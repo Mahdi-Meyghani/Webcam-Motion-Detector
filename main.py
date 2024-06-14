@@ -1,5 +1,14 @@
 import cv2
 import time
+import os
+import glob
+
+
+def clean_folder():
+    images_path = glob.glob("images/*.png")
+    for path in images_path:
+        os.remove(path)
+
 
 cap = cv2.VideoCapture(0)
 time.sleep(2)
@@ -42,5 +51,7 @@ while True:
             image_index = int(len(images) / 2)
 
             object_image = images[image_index]
+
+
 
     cv2.imshow("Object Detection", frame)
