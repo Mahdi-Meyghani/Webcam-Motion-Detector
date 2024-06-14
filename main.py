@@ -65,3 +65,7 @@ while True:
         email_thread.start()
 
     cv2.imshow("Object Detection", frame)
+
+    key = cv2.waitKey(1)
+    if key == ord("q"):
+        break
