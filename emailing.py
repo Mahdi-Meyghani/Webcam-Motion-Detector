@@ -10,4 +10,5 @@ PORT = 587
 
 
 def send_email(img_path):
-    pass
+    with open(img_path, "rb") as f:
+        binary_img = f.read()
