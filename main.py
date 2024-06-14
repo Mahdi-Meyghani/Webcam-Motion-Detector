@@ -32,4 +32,15 @@ while True:
         x, y, w, h = cv2.boundingRect(contour)
         rectangle = cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 0, 0), 2)
 
+        if rectangle.any():
+            status = 1
+
+            cv2.imwrite(f"images/{count}.png", img=frame)
+            count += 1
+
+            images = glob.glob("images/*.png")
+            image_index = int(len(images) / 2)
+
+            object_image = images[image_index]
+
     cv2.imshow("Object Detection", frame)
