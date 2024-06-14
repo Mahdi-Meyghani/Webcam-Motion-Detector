@@ -18,3 +18,11 @@ def send_email(img_path):
     email_msg["Subject"] = "New customer Entered"
     email_msg.set_content("Wow! What a customer :)")
     email_msg.add_attachment(binary_img, maintype="image", subtype="png")
+
+    email = smtplib.SMTP(host=HOST, port=PORT)
+
+    email.ehlo()
+    email.starttls()
+    email.login(USER, PASSWORD)
+    email.sendmail(USER, RECEIVER, email_msg.as_string())
+    email.quit()
