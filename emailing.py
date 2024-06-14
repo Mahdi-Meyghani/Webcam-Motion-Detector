@@ -12,3 +12,9 @@ PORT = 587
 def send_email(img_path):
     with open(img_path, "rb") as f:
         binary_img = f.read()
+
+    email_msg = EmailMessage()
+
+    email_msg["Subject"] = "New customer Entered"
+    email_msg.set_content("Wow! What a customer :)")
+    email_msg.add_attachment(binary_img, maintype="image", subtype="png")
