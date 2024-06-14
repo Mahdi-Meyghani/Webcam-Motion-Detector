@@ -23,4 +23,13 @@ while True:
     thresh_frame = cv2.threshold(differences_frame, 60, 255, cv2.THRESH_BINARY)[1]
     dilate_frame = cv2.dilate(thresh_frame, None, iterations=2)
 
+    contours, check = cv2.findContours(dilate_frame, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
+    for contour in contours:
+        if cv2.contourArea(contour) < 10000:
+            continue
+
+        x, y, w, h = cv2.boundingRect(contour)
+        rectangle = cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 0, 0), 2)
+
     cv2.imshow("Object Detection", frame)
