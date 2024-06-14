@@ -7,3 +7,7 @@ PASSWORD = os.getenv("WebcamObjectDetectionPassword")
 RECEIVER = "mahdimeyghani02@gmail.com"
 HOST = "smtp.gmail.com"
 PORT = 587
+
+
+def send_email(img_path):
+    pass
