@@ -1,7 +1,9 @@
+import threading
 import cv2
 import time
 import os
 import glob
+from emailing import send_email
 
 
 def clean_folder():
